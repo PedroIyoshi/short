@@ -1,7 +1,7 @@
 import psutil
 
 pid = int(input("Insira o pid do processo: "))
-cores = int(input("Insira a quantidade de cores do processador: "))
+cores = psutil.cpu_count()
 try:
     p = psutil.Process(pid)
 except Exception as e:
