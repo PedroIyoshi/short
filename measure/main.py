@@ -1,9 +1,9 @@
 import psutil
 
-pid = input("Insira o pid do processo: ")
-
+pid = int(input("Insira o pid do processo: "))
+cores = int(input("Insira a quantidade de cores do processador: "))
 try:
-    p = psutil.Process(int(pid)) 
+    p = psutil.Process(pid)
 except Exception as e:
     print("PID inválido\n" + e)
 
@@ -23,4 +23,4 @@ except Exception as e:
 
 finally:
     arquivo = open("measure/resultado.txt", "a")
-    arquivo.write(f'\n\n\n{p.name()} ==>    CPU: {maxCpu/4},     RAM: {maxRam}')
+    arquivo.write(f'\n\n\n{p.name()} ==>    CPU: {maxCpu/cores},     RAM: {maxRam}')
